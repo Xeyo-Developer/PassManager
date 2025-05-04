@@ -1,2 +1,2 @@
 # PassManager
-Prywatny menedżer haseł oparty na przechowywaniu danych lokalnie, bez połączenia z serwerem.
+A private password manager that stores all data locally, with no server connection required.
