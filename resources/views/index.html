@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Password Manager</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="../css/output.css" />
+    </head>
+
+    <body>
+        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414]">
+            <div class="p-3 bg-transparent">
+                <a href="./index.html" class="bg-transparent">
+                    <img src="../assets/imgs/logo.png" alt="logo" width="50" height="50" class="bg-transparent select-none" />
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
+                <button id="minimizeWindow" class="p-[2px] rounded-smbg-[#101010] cursor-pointer self-center bg-transparent">
+                    <i class="fa-solid fa-minus bg-transparent" style="color: #878787;"></i>
+                </button>
+
+                <button id="maximizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
+                    <i class="fa-solid fa-maximize text-xs bg-transparent" style="color: #878787;"></i>
+                </button>
+
+                <button id="closeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
+                    <i class="fa-solid fa-xmark bg-transparent" style="color: #878787;"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="w-full h-full bg-transparent flex">
+            <aside class="bg-[#141414] min-w-16 w-16 h-full flex flex-col items-center justify-between gap-y-2 p-4 border-r border-[#90909030]">
+                <div class="flex flex-col bg-transparent gap-y-2">
+                    <a href="./list.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none">
+                        <i class="fas fa-vault text-[#909090] md:text-2xl"></i>
+                    </a>
+
+                    <a href="./generate.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none">
+                        <i class="fas fa-key text-[#909090] md:text-2xl"></i>
+                    </a>
+                </div>
+
+                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none mb-12">
+                    <i class="fas fa-cog text-[#909090] md:text-2xl"></i>
+                </a>
+            </aside>
+
+            <section class="bg-transparent w-full h-full p-6">
+                <h1 class="bg-transparent text-lg">
+                    YOUR PASSWORD DASHBOARD
+                </h1>
+
+                <nav class="bg-transparent grid gap-2 place-items-start w-full pt-4">
+                    <a href="list.html" class="bg-[#202020] hover:bg-[#272727] transition-all duration-150 rounded-md py-6 px-6 flex items-center w-full lg:w-[50%]">
+                        <i class="fas fa-vault text-[#6868DF] text-2xl md:text-2xl bg-transparent"></i>
+
+                        <div class="bg-transparent flex flex-col pl-4 text-gray-300">
+                            <h1 class="text-lg font-semibold tracking-wide bg-transparent">
+                                PASSWORD VAULT
+                            </h1>
+
+                            <p class="text-sm text-[#909090] font-semibold bg-transparent">
+                                Access and manage all your stored credentials.
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="generate.html" class="bg-[#202020] hover:bg-[#272727] transition-all duration-150 rounded-md py-6 px-6 flex items-center w-full lg:w-[50%]">
+                        <i class="fas fa-shield-alt text-[#6868DF] text-2xl md:text-2xl bg-transparent"></i>
+
+                        <div class="bg-transparent flex flex-col pl-4 text-gray-300">
+                            <h1 class="text-lg font-semibold tracking-wide bg-transparent">
+                                SECURE GENERATOR
+                            </h1>
+
+                            <p class="text-sm text-[#909090] font-semibold bg-transparent">
+                                Create strong, unique passwords instantly.
+                            </p>
+                        </div>
+                    </a>
+                </nav>
+            </section>
+        </main>
+
+        <script src="../js/window/buttons.js" type="module"></script>
+    </body>
+</html>
