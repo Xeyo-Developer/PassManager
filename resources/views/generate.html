@@ -51,11 +51,96 @@
                 </a>
             </aside>
 
-            <section class="bg-transparent w-full h-full p-6">
-                
+            <section class="bg-transparent w-full h-full p-6 overflow-x-hidden overflow-y-auto">
+                <h1 class="bg-transparent uppercase">
+                    GENERATED PASSWORD OPTIONS
+                </h1>
+
+                <p class="bg-transparent font-medium text-[#909090] text-md">
+                    Select the option below to edit the password generation process
+                </p>
+
+                <div class="bg-transparent grid max-lg:grid-cols-2 place-items-start py-2">
+                    <div class="bg-transparent flex flex-row-reverse justify-start gap-y-1 gap-x-2 items-center">
+                        <label for="lowercase-letters" class="bg-transparent text-[#909090] font-medium">Allow lowercase letters in a password.</label>
+                        <input checked type="checkbox" name="lowercase-letters" id="lowercaseLettersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                    </div>
+
+                    <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
+                        <label for="uppercase-letters" class="bg-transparent text-[#909090] font-medium">Allow uppercase letters in a password.</label>
+                        <input checked type="checkbox" name="uppercase-letters" id="uppercaseLettersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                    </div>
+
+                    <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
+                        <label for="numbers" class="bg-transparent text-[#909090] font-medium">Allow numbers in a password.</label>
+                        <input checked type="checkbox" name="numbers" id="numbersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                    </div>
+
+                    <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
+                        <label for="special-characters" class="bg-transparent text-[#909090] font-medium">Allow special characters in a password.</label>
+                        <input type="checkbox" name="special-characters" id="specialCharactersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                    </div>
+                </div>
+
+                <h1 class="bg-transparent uppercase pt-4">
+                    Password length
+                </h1>
+
+                <p class="bg-transparent font-medium text-[#909090]">
+                    Choose what length of password you want.
+                </p>
+
+                <div class="bg-transparent flex items-center justify-start gap-x-1 min-w-36 pt-2">
+                    <button id="decrementLengthButton" class="py-1 px-3 text-center bg-[#702121] duration-150 hover:bg-[#993030] rounded-sm cursor-pointer font-medium select-none font-mono">
+                        -
+                    </button>
+
+                    <input type="number" id="passwordsLengthInput" class="text-center rounded-md p-1 border border-[#90909030] duration-150 focus:border-[#90909050] outline-none bg-[#141414] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" value="12" min="8" max="64" maxlength="2" />
+
+                    <button id="incrementLengthButton" class="py-1 px-3 text-center bg-[#407521] duration-150 rounded-sm cursor-pointer font-medium select-none font-mono">
+                        +
+                    </button>
+                </div>
+
+                <h1 class="bg-transparent uppercase pt-4">
+                    Password generation
+                </h1>
+
+                <p class="bg-transparent font-medium text-[#909090]">
+                    Select below how many passwords you want to generate and press “Generate Password”.
+                </p>
+
+                <div class="bg-transparent flex items-center gap-x-1 pt-2">
+                    <div class="bg-transparent flex items-center justify-start gap-x-1 min-w-36">
+                        <button id="decrementButton" class="py-1 px-3 text-center bg-[#702121] duration-150 hover:bg-[#993030] rounded-sm cursor-pointer font-medium select-none font-mono">
+                            -
+                        </button>
+
+                        <input type="number" id="passwordsAmount" class="text-center rounded-md p-1 border border-[#90909030] duration-150 focus:border-[#90909050] outline-none bg-[#141414] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" value="1" min="1" max="20" maxlength="2" />
+
+                        <button id="incrementButton" class="py-1 px-3 text-center bg-[#407521] duration-150 rounded-sm cursor-pointer font-medium select-none font-mono">
+                            +
+                        </button>
+                    </div>
+
+                    <button id="generatePasswords" class="bg-[#2A5991] duration-150 rounded-sm cursor-pointer text-center py-1 px-8 font-medium select-none">
+                        Generate Passwords
+                    </button>
+                </div>
+
+                <br>
+
+                <h1 class="bg-transparent uppercase pt-4 text-lg">
+                    Result
+                </h1>
+
+                <ul class="w-full flex flex-col gap-y-1 list-disc pb-8 marker:text-[#909090]" id="generatedPasswords">
+                    <p class="bg-transparent font-medium text-[#909090]">Generated passwords will be displayed here once generated.</p>
+                </ul>
             </section>
         </main>
 
         <script src="../js/window/buttons.js" type="module"></script>
+        <script src="../js/pages/generate.js"></script>
     </body>
 </html>
