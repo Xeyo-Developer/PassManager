@@ -747,6 +747,9 @@
   .bg-\[\#702121\] {
     background-color: #702121;
   }
+  .bg-\[\#2A5991\] {
+    background-color: #2A5991;
+  }
   .bg-black {
     background-color: var(--color-black);
   }
@@ -917,20 +920,20 @@
       color: #909090;
     }
   }
-  .checked\:border-\[\#6868DF\] {
+  .checked\:border-\[\#2A5991\] {
     &:checked {
-      border-color: #6868DF;
+      border-color: #2A5991;
     }
   }
-  .checked\:bg-\[\#6868DF\] {
+  .checked\:bg-\[\#2A5991\] {
     &:checked {
-      background-color: #6868DF;
+      background-color: #2A5991;
     }
   }
-  .hover\:bg-\[\#6868DF\] {
+  .hover\:bg-\[\#2A5991\] {
     &:hover {
       @media (hover: hover) {
-        background-color: #6868DF;
+        background-color: #2A5991;
       }
     }
   }
@@ -955,10 +958,10 @@
       }
     }
   }
-  .hover\:text-\[\#6868DF\] {
+  .hover\:text-\[\#2A5991\] {
     &:hover {
       @media (hover: hover) {
-        color: #6868DF;
+        color: #2A5991;
       }
     }
   }

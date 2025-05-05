@@ -51,11 +51,100 @@
                 </a>
             </aside>
 
-            <section class="bg-transparent w-full h-full p-6">
-                
+            <section class="bg-transparent w-full h-full p-6" id="management">
+                <h1 class="bg-transparent">DETAILS</h1>
+                <p class="text-[#909090] font-semibold bg-transparent">Details about a new password.</p>
+
+                <ul id="errors" class="bg-[#321414] rounded-sm border-[#90909030] border p-3 flex flex-col mt-4 max-lg:w-full lg:w-[50%] gap-y-2 hidden">
+                    <li class="bg-transparent flex items-center justify-between">
+                        <h3 class="bg-transparent font-semibold text-[#AA909060]">
+                            ERRORS
+                        </h3>
+
+                        <button id="closeErrors" class="p-[2px] rounded-sm border border-[#90909030] bg-[#201010] cursor-pointer select-none">
+                            <img src="../assets/icons/close.svg" alt="close" width="16" height="16" class="bg-transparent select-none" />
+                        </button>
+                    </li>
+
+                    <li class="bg-transparent w-full">
+                        <ul class="bg-transparent flex flex-col gap-y-[2px] pl-2]">
+                            <li class="bg-transparent text-[#909090] font-semibold hidden" id="usernameError">
+                                You must provide a username or an email address.
+                            </li>
+                            <li class="bg-transparent text-[#909090] font-semibold hidden" id="passwordError">
+                                You must provide a password.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <label for="username" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2">
+                    USERNAME
+                </label>
+                <input name="username" type="text" value="" placeholder="Enter username or email." class="bg-transparent p-2 outline-none border-[#90909030] border rounded-md font-medium max-lg:w-full w-[50%]" maxlength="64" minlength="3" id="username" />
+
+                <label for="password" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2">
+                    PASSWORD
+                </label>
+                <input name="password" type="text" value="" placeholder="Enter password." class="bg-transparent p-2 outline-none border-[#90909030] border rounded-md font-medium max-lg:w-full w-[50%]" maxlength="64" minlength="3" id="password" />
+
+                <label for="password" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2">
+                    TYPE
+                </label>
+
+                <div class="grid max-lg:w-full w-[50%] grid-cols-2 gap-[2px]">
+                    <div class="bg-transparent flex items-center justify-start gap-x-2">
+                        <input type="radio" id="type-instagram" name="type" value="0" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" checked />
+                        <label for="type-instagram" class="text-[#909090] font-semibold bg-transparent">
+                            Instagram
+                        </label>
+                    </div>
+
+                    <div class="bg-transparent flex items-center justify-start gap-x-2">
+                        <input type="radio" id="type-github" name="type" value="1" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-github" class="text-[#909090] font-semibold bg-transparent">
+                            GitHub
+                        </label>
+                    </div>
+
+                    <div class="bg-transparent flex items-center justify-start gap-x-2">
+                        <input type="radio" id="type-facebook" name="type" value="2" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-facebook" class="text-[#909090] font-semibold bg-transparent">
+                            Facebook
+                        </label>
+                    </div>
+
+                    <div class="bg-transparent flex items-center justify-start gap-x-2">
+                        <input type="radio" id="type-youtube" name="type" value="3" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-youtube" class="text-[#909090] font-semibold bg-transparent">
+                            YouTube
+                        </label>
+                    </div>
+
+                    <div class="bg-transparent flex items-center justify-start gap-x-2">
+                        <input type="radio" id="type-discord" name="type" value="4" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-discord" class="text-[#909090] font-semibold bg-transparent">
+                            Discord
+                        </label>
+                    </div>
+
+                    <div class="bg-transparent flex items-center justify-start gap-x-2">
+                        <input type="radio" id="type-other" name="type" value="5" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-other" class="text-[#909090] font-semibold bg-transparent">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-transparent flex max-lg:flex-col max-lg:w-full w-[50%] gap-2 pt-4">
+                    <button id="addPassword" class="bg-[#2A5991] duration-150 text-center rounded-sm cursor-pointer py-1 w-full font-semibold">
+                        Add Password
+                    </button>
+                </div>
             </section>
         </main>
 
         <script src="../js/window/buttons.js" type="module"></script>
+        <script src="../js/pages/add.js" type="module"></script>
     </body>
 </html>
