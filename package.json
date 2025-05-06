@@ -13,7 +13,7 @@
     "@types/electron": "^1.6.12",
     "@types/node": "^22.13.1",
     "electron": "^34.1.1",
-    "electron-builder": "^25.1.8",
+    "electron-builder": "^26.0.0",
     "electron-rebuild": "^3.2.9",
     "typescript": "^5.5.3"
   },
