@@ -76,6 +76,21 @@
             .sidebar-btn.active::after {
                 height: 60%;
             }
+
+            #passwords {
+                max-height: calc(100vh - 200px);
+                overflow-y: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding-right: 0;
+            }
+
+            #passwords::-webkit-scrollbar {
+                display: none;
+                width: 0;
+                height: 0;
+                background: transparent;
+            }
         </style>
     </head>
 
@@ -123,7 +138,7 @@
                 <h1 class="bg-transparent uppercase text-lg select-none">Passwords</h1>
                 <p class="bg-transparent font-medium text-[#909090] text-md select-none">Your passwords are listed below here.</p>
 
-                <div class="bg-transparent grid gap-2 place-items-start w-full py-4 overflow-x-hidden" id="passwords">
+                <div class="bg-transparent grid gap-2 place-items-start w-full py-2 overflow-x-hidden mt-2" id="passwords">
                 </div>
             </section>
         </main>
