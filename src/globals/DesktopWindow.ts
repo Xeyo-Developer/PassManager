@@ -20,6 +20,7 @@ class DesktopWindow {
             autoHideMenuBar: true,
             title: "Window",
             titleBarStyle: "hidden",
+            frame: false,
         });
 
         await window.loadFile(join(process.cwd(), "./resources/views/index.html"));

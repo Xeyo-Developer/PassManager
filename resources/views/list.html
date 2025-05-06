@@ -9,10 +9,25 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="../css/output.css" />
+
+        <style>
+            header {
+                -webkit-app-region: drag;
+                user-select: none;
+            }
+
+            header button, header a, header img {
+                -webkit-app-region: no-drag;
+            }
+
+            main {
+                height: calc(100vh - 3rem);
+            }
+        </style>
     </head>
 
     <body>
-        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414]">
+        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] draggable">
             <div class="p-3 bg-transparent">
                 <a href="./index.html" class="bg-transparent">
                     <img src="../assets/imgs/logo.png" alt="logo" width="50" height="50" class="bg-transparent select-none" />
@@ -20,7 +35,7 @@
             </div>
 
             <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
-                <button id="minimizeWindow" class="p-[2px] rounded-smbg-[#101010] cursor-pointer self-center bg-transparent">
+                <button id="minimizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-minus bg-transparent" style="color: #878787;"></i>
                 </button>
 
@@ -46,14 +61,14 @@
                     </a>
                 </div>
 
-                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none mb-12">
+                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none">
                     <i class="fas fa-cog text-[#909090] md:text-2xl"></i>
                 </a>
             </aside>
 
-            <section class="bg-transparent w-full h-full p-6">
-                <h1 class="bg-transparent uppercase text-lg">Passwords</h1>
-                <p class="bg-transparent font-medium text-[#909090] text-md">Your passwords are listed below here.</p>
+            <section class="bg-transparent w-full h-full p-6 select-none">
+                <h1 class="bg-transparent uppercase text-lg select-none">Passwords</h1>
+                <p class="bg-transparent font-medium text-[#909090] text-md select-none">Your passwords are listed below here.</p>
 
                 <div class="bg-transparent grid gap-2 place-items-start w-full py-4 overflow-x-hidden" id="passwords">
                 </div>

@@ -9,10 +9,25 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="../css/output.css" />
+
+        <style>
+            header {
+                -webkit-app-region: drag;
+                user-select: none;
+            }
+
+            header button, header a, header img {
+                -webkit-app-region: no-drag;
+            }
+
+            main {
+                height: calc(100vh - 3rem);
+            }
+        </style>
     </head>
 
     <body>
-        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414]">
+        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] draggable">
             <div class="p-3 bg-transparent">
                 <a href="./index.html" class="bg-transparent">
                     <img src="../assets/imgs/logo.png" alt="logo" width="50" height="50" class="bg-transparent select-none" />
@@ -20,7 +35,7 @@
             </div>
 
             <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
-                <button id="minimizeWindow" class="p-[2px] rounded-smbg-[#101010] cursor-pointer self-center bg-transparent">
+                <button id="minimizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-minus bg-transparent" style="color: #878787;"></i>
                 </button>
 
@@ -46,7 +61,7 @@
                     </a>
                 </div>
 
-                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none mb-12">
+                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none">
                     <i class="fas fa-cog text-[#909090] md:text-2xl"></i>
                 </a>
             </aside>
@@ -57,87 +72,101 @@
 
                 <ul id="errors" class="bg-[#321414] rounded-sm border-[#90909030] border p-3 flex flex-col mt-4 max-lg:w-full lg:w-[50%] gap-y-2 hidden">
                     <li class="bg-transparent flex items-center justify-between">
-                        <h3 class="bg-transparent font-semibold text-[#AA909060]">
+                        <h3 class="bg-transparent font-semibold text-[#AA909060] select-none">
                             ERRORS
                         </h3>
 
-                        <button id="closeErrors" class="p-[2px] rounded-sm border border-[#90909030] bg-[#201010] cursor-pointer select-none">
-                            <img src="../assets/icons/close.svg" alt="close" width="16" height="16" class="bg-transparent select-none" />
+                        <button id="closeErrors" class="p-[2px] rounded-sm cursor-pointer select-none">
+                            <i class="fa-solid fa-xmark bg-transparent" style="color: #878787;"></i>
                         </button>
                     </li>
 
                     <li class="bg-transparent w-full">
                         <ul class="bg-transparent flex flex-col gap-y-[2px] pl-2]">
-                            <li class="bg-transparent text-[#909090] font-semibold hidden" id="usernameError">
+                            <li class="bg-transparent text-[#909090] font-semibold hidden select-none" id="usernameError">
                                 You must provide a username or an email address.
                             </li>
-                            <li class="bg-transparent text-[#909090] font-semibold hidden" id="passwordError">
+                            <li class="bg-transparent text-[#909090] font-semibold hidden select-none" id="passwordError">
                                 You must provide a password.
                             </li>
                         </ul>
                     </li>
                 </ul>
 
-                <label for="username" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2">
+                <label for="username" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2 select-none">
                     USERNAME
                 </label>
                 <input name="username" type="text" value="" placeholder="Enter username or email." class="bg-transparent p-2 outline-none border-[#90909030] border rounded-md font-medium max-lg:w-full w-[50%]" maxlength="64" minlength="3" id="username" />
 
-                <label for="password" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2">
+                <label for="password" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2 select-none">
                     PASSWORD
                 </label>
                 <input name="password" type="text" value="" placeholder="Enter password." class="bg-transparent p-2 outline-none border-[#90909030] border rounded-md font-medium max-lg:w-full w-[50%]" maxlength="64" minlength="3" id="password" />
 
-                <label for="password" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2">
+                <label for="password" class="text-[#909090] font-semibold bg-transparent pt-4 flex items-center gap-x-1 pb-2 select-none">
                     TYPE
                 </label>
 
                 <div class="grid max-lg:w-full w-[50%] grid-cols-2 gap-[2px]">
                     <div class="bg-transparent flex items-center justify-start gap-x-2">
                         <input type="radio" id="type-instagram" name="type" value="0" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
-                        <label for="type-instagram" class="text-[#909090] font-semibold bg-transparent">
+                        <label for="type-instagram" class="text-[#909090] font-semibold bg-transparent select-none">
                             Instagram
                         </label>
                     </div>
 
                     <div class="bg-transparent flex items-center justify-start gap-x-2">
                         <input type="radio" id="type-github" name="type" value="1" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
-                        <label for="type-github" class="text-[#909090] font-semibold bg-transparent">
+                        <label for="type-github" class="text-[#909090] font-semibold bg-transparent select-none">
                             GitHub
                         </label>
                     </div>
 
                     <div class="bg-transparent flex items-center justify-start gap-x-2">
                         <input type="radio" id="type-facebook" name="type" value="2" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
-                        <label for="type-facebook" class="text-[#909090] font-semibold bg-transparent">
+                        <label for="type-facebook" class="text-[#909090] font-semibold bg-transparent select-none">
                             Facebook
                         </label>
                     </div>
 
                     <div class="bg-transparent flex items-center justify-start gap-x-2">
                         <input type="radio" id="type-youtube" name="type" value="3" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
-                        <label for="type-youtube" class="text-[#909090] font-semibold bg-transparent">
+                        <label for="type-youtube" class="text-[#909090] font-semibold bg-transparent select-none">
                             YouTube
                         </label>
                     </div>
 
                     <div class="bg-transparent flex items-center justify-start gap-x-2">
-                        <input type="radio" id="type-discord" name="type" value="4" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
-                        <label for="type-discord" class="text-[#909090] font-semibold bg-transparent">
+                        <input type="radio" id="type-steam" name="type" value="4" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-steam" class="text-[#909090] font-semibold bg-transparent select-none">
+                            Steam
+                        </label>
+                    </div>
+
+                    <div class="bg-transparent flex items-center justify-start gap-x-2">
+                        <input type="radio" id="type-spotify" name="type" value="5" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-spotify" class="text-[#909090] font-semibold bg-transparent select-none">
+                            Spotify
+                        </label>
+                    </div>
+
+                    <div class="bg-transparent flex items-center justify-start gap-x-2">
+                        <input type="radio" id="type-discord" name="type" value="6" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-discord" class="text-[#909090] font-semibold bg-transparent select-none">
                             Discord
                         </label>
                     </div>
 
                     <div class="bg-transparent flex items-center justify-start gap-x-2">
-                        <input type="radio" id="type-other" name="type" value="5" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
-                        <label for="type-other" class="text-[#909090] font-semibold bg-transparent">
+                        <input type="radio" id="type-other" name="type" value="7" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
+                        <label for="type-other" class="text-[#909090] font-semibold bg-transparent select-none">
                             Other
                         </label>
                     </div>
                 </div>
 
                 <div class="bg-transparent flex max-lg:flex-col max-lg:w-full w-[50%] gap-2 pt-4">
-                    <button id="addPassword" class="bg-[#2A5991] duration-150 text-center rounded-sm cursor-pointer py-1 w-full font-semibold">
+                    <button id="addPassword" class="bg-[#2A5991] duration-150 text-center rounded-sm cursor-pointer py-1 w-full font-semibold select-none">
                         Add Password
                     </button>
                 </div>

@@ -11,14 +11,21 @@ contextBridge.exposeInMainWorld("electron", {
         password: string,
         username: string,
         type: number
-    }) => ipcRenderer.send("addPassword", options),
+    }): void => ipcRenderer.send("addPassword", options),
 
     updatePassword: (id: number, options: {
         password: string,
         username: string,
         type: number
-    }) => ipcRenderer.send("updatePassword", id, options),
+    }): void => ipcRenderer.send("updatePassword", id, options),
 
-    deletePassword: (id: number) => ipcRenderer.send("deletePassword", id),
-    deleteAllPasswords: () => ipcRenderer.send("deleteAllPasswords"),
+    deletePassword: (id: number): void => ipcRenderer.send("deletePassword", id),
+    deleteAllPasswords: (): void => ipcRenderer.send("deleteAllPasswords"),
+
+    makeDraggable: (element: HTMLElement): void => {
+        element.style.webkitAppRegion = 'drag';
+    },
+    makeUndraggable: (element: HTMLElement): void => {
+        element.style.webkitAppRegion = 'no-drag';
+    }
 });

@@ -9,10 +9,25 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="../css/output.css" />
+
+        <style>
+            header {
+                -webkit-app-region: drag;
+                user-select: none;
+            }
+
+            header button, header a, header img {
+                -webkit-app-region: no-drag;
+            }
+
+            main {
+                height: calc(100vh - 3rem);
+            }
+        </style>
     </head>
 
     <body>
-        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414]">
+        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] draggable">
             <div class="p-3 bg-transparent">
                 <a href="./index.html" class="bg-transparent">
                     <img src="../assets/imgs/logo.png" alt="logo" width="50" height="50" class="bg-transparent select-none" />
@@ -20,7 +35,7 @@
             </div>
 
             <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
-                <button id="minimizeWindow" class="p-[2px] rounded-smbg-[#101010] cursor-pointer self-center bg-transparent">
+                <button id="minimizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-minus bg-transparent" style="color: #878787;"></i>
                 </button>
 
@@ -46,13 +61,13 @@
                     </a>
                 </div>
 
-                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none mb-12">
+                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none">
                     <i class="fas fa-cog text-[#909090] md:text-2xl"></i>
                 </a>
             </aside>
 
             <section class="bg-transparent w-full h-full p-6">
-                <h1 class="bg-transparent text-lg">
+                <h1 class="bg-transparent text-lg select-none">
                     YOUR PASSWORD DASHBOARD
                 </h1>
 
@@ -61,11 +76,11 @@
                         <i class="fas fa-vault text-[#6868DF] text-2xl md:text-2xl bg-transparent"></i>
 
                         <div class="bg-transparent flex flex-col pl-4 text-gray-300">
-                            <h1 class="text-lg font-semibold tracking-wide bg-transparent">
+                            <h1 class="text-lg font-semibold tracking-wide bg-transparent select-none">
                                 PASSWORD VAULT
                             </h1>
 
-                            <p class="text-sm text-[#909090] font-semibold bg-transparent">
+                            <p class="text-sm text-[#909090] font-semibold bg-transparent select-none">
                                 Access and manage all your stored credentials.
                             </p>
                         </div>
@@ -75,11 +90,11 @@
                         <i class="fas fa-shield-alt text-[#6868DF] text-2xl md:text-2xl bg-transparent"></i>
 
                         <div class="bg-transparent flex flex-col pl-4 text-gray-300">
-                            <h1 class="text-lg font-semibold tracking-wide bg-transparent">
+                            <h1 class="text-lg font-semibold tracking-wide bg-transparent select-none">
                                 SECURE GENERATOR
                             </h1>
 
-                            <p class="text-sm text-[#909090] font-semibold bg-transparent">
+                            <p class="text-sm text-[#909090] font-semibold bg-transparent select-none">
                                 Create strong, unique passwords instantly.
                             </p>
                         </div>

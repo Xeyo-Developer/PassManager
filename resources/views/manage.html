@@ -9,10 +9,25 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="../css/output.css" />
+
+        <style>
+            header {
+                -webkit-app-region: drag;
+                user-select: none;
+            }
+
+            header button, header a, header img {
+                -webkit-app-region: no-drag;
+            }
+
+            main {
+                height: calc(100vh - 3rem);
+            }
+        </style>
     </head>
 
     <body>
-        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414]">
+        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] draggable">
             <div class="p-3 bg-transparent">
                 <a href="./index.html" class="bg-transparent">
                     <img src="../assets/imgs/logo.png" alt="logo" width="50" height="50" class="bg-transparent select-none" />
@@ -20,7 +35,7 @@
             </div>
 
             <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
-                <button id="minimizeWindow" class="p-[2px] rounded-smbg-[#101010] cursor-pointer self-center bg-transparent">
+                <button id="minimizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-minus bg-transparent" style="color: #878787;"></i>
                 </button>
 
@@ -38,7 +53,7 @@
             <div class="bg-transparent flex flex-col items-center justify-center">
                 <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] rounded-t-md">
                     <div class="w-full draggable h-full bg-transparent flex items-center justify-between pl-6">
-                        <h3 class="bg-transparent text-[#90909070] select-none font-semibold">
+                        <h3 class="bg-transparent text-[#90909070] select-none font-semibold select-none">
                             Delete Password
                         </h3>
                     </div>
@@ -51,16 +66,16 @@
                 </header>
 
                 <section class="p-6  w-full bg-[#101010] rounded-b-md">
-                    <p class="bg-transparent text-[#909090] font-semibold">
+                    <p class="bg-transparent text-[#909090] font-semibold select-none">
                         Are you sure you want to delete this password?
                     </p>
 
                     <div class="bg-transparent flex flex-col gap-y-2 pt-6">
-                        <button id="deletePasswordModal" class="bg-[#702121] duration-150 hover:bg-[#993030] text-center rounded-sm cursor-pointer py-1 w-full font-semibold">
+                        <button id="deletePasswordModal" class="bg-[#702121] duration-150 hover:bg-[#993030] text-center rounded-sm cursor-pointer py-1 w-full font-semibold select-none">
                             Delete Password
                         </button>
 
-                        <button id="cancelButton" class="bg-[#202020] duration-150 hover:bg-[#282828] text-center rounded-sm cursor-pointer py-1 w-full font-semibold">
+                        <button id="cancelButton" class="bg-[#202020] duration-150 hover:bg-[#282828] text-center rounded-sm cursor-pointer py-1 w-full font-semibold select-none">
                             Cancel
                         </button>
                     </div>
@@ -80,7 +95,7 @@
                     </a>
                 </div>
 
-                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none mb-12">
+                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none">
                     <i class="fas fa-cog text-[#909090] md:text-2xl"></i>
                 </a>
             </aside>

@@ -9,10 +9,25 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="../css/output.css" />
+
+        <style>
+            header {
+                -webkit-app-region: drag;
+                user-select: none;
+            }
+
+            header button, header a, header img {
+                -webkit-app-region: no-drag;
+            }
+
+            main {
+                height: calc(100vh - 3rem);
+            }
+        </style>
     </head>
 
     <body>
-        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414]">
+        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] draggable">
             <div class="p-3 bg-transparent">
                 <a href="./index.html" class="bg-transparent">
                     <img src="../assets/imgs/logo.png" alt="logo" width="50" height="50" class="bg-transparent select-none" />
@@ -20,7 +35,7 @@
             </div>
 
             <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
-                <button id="minimizeWindow" class="p-[2px] rounded-smbg-[#101010] cursor-pointer self-center bg-transparent">
+                <button id="minimizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-minus bg-transparent" style="color: #878787;"></i>
                 </button>
 
@@ -46,47 +61,47 @@
                     </a>
                 </div>
 
-                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none mb-12">
+                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none">
                     <i class="fas fa-cog text-[#909090] md:text-2xl"></i>
                 </a>
             </aside>
 
             <section class="bg-transparent w-full h-full p-6 overflow-x-hidden overflow-y-auto">
-                <h1 class="bg-transparent uppercase">
+                <h1 class="bg-transparent uppercase select-none">
                     GENERATED PASSWORD OPTIONS
                 </h1>
 
-                <p class="bg-transparent font-medium text-[#909090] text-md">
+                <p class="bg-transparent font-medium text-[#909090] text-md select-none">
                     Select the option below to edit the password generation process
                 </p>
 
                 <div class="bg-transparent grid max-lg:grid-cols-2 place-items-start py-2">
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-y-1 gap-x-2 items-center">
-                        <label for="lowercase-letters" class="bg-transparent text-[#909090] font-medium">Allow lowercase letters in a password.</label>
+                        <label for="lowercase-letters" class="bg-transparent text-[#909090] font-medium select-none">Allow lowercase letters in a password.</label>
                         <input checked type="checkbox" name="lowercase-letters" id="lowercaseLettersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label for="uppercase-letters" class="bg-transparent text-[#909090] font-medium">Allow uppercase letters in a password.</label>
+                        <label for="uppercase-letters" class="bg-transparent text-[#909090] font-medium select-none">Allow uppercase letters in a password.</label>
                         <input checked type="checkbox" name="uppercase-letters" id="uppercaseLettersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label for="numbers" class="bg-transparent text-[#909090] font-medium">Allow numbers in a password.</label>
+                        <label for="numbers" class="bg-transparent text-[#909090] font-medium select-none">Allow numbers in a password.</label>
                         <input checked type="checkbox" name="numbers" id="numbersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label for="special-characters" class="bg-transparent text-[#909090] font-medium">Allow special characters in a password.</label>
+                        <label for="special-characters" class="bg-transparent text-[#909090] font-medium select-none">Allow special characters in a password.</label>
                         <input type="checkbox" name="special-characters" id="specialCharactersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
                 </div>
 
-                <h1 class="bg-transparent uppercase pt-4">
+                <h1 class="bg-transparent uppercase pt-4 select-none">
                     Password length
                 </h1>
 
-                <p class="bg-transparent font-medium text-[#909090]">
+                <p class="bg-transparent font-medium text-[#909090] select-none">
                     Choose what length of password you want.
                 </p>
 
@@ -102,11 +117,11 @@
                     </button>
                 </div>
 
-                <h1 class="bg-transparent uppercase pt-4">
+                <h1 class="bg-transparent uppercase pt-4 select-none">
                     Password generation
                 </h1>
 
-                <p class="bg-transparent font-medium text-[#909090]">
+                <p class="bg-transparent font-medium text-[#909090] select-none">
                     Select below how many passwords you want to generate and press “Generate Password”.
                 </p>
 
@@ -130,12 +145,12 @@
 
                 <br>
 
-                <h1 class="bg-transparent uppercase pt-4 text-lg">
+                <h1 class="bg-transparent uppercase pt-4 text-lg select-none">
                     Result
                 </h1>
 
                 <ul class="w-full flex flex-col gap-y-1 list-disc pb-8 marker:text-[#909090]" id="generatedPasswords">
-                    <p class="bg-transparent font-medium text-[#909090]">Generated passwords will be displayed here once generated.</p>
+                    <p class="bg-transparent font-medium text-[#909090] select-none">Generated passwords will be displayed here once generated.</p>
                 </ul>
             </section>
         </main>

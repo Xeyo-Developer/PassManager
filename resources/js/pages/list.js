@@ -4,6 +4,8 @@ const typeIdToIcon = [
     "github",
     "facebook",
     "youtube",
+    "steam",
+    "spotify",
     "discord",
     "other"
 ]

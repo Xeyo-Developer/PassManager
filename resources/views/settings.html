@@ -9,10 +9,25 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="../css/output.css" />
+
+        <style>
+            header {
+                -webkit-app-region: drag;
+                user-select: none;
+            }
+
+            header button, header a, header img {
+                -webkit-app-region: no-drag;
+            }
+
+            main {
+                height: calc(100vh - 3rem);
+            }
+        </style>
     </head>
 
     <body>
-        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414]">
+        <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] draggable">
             <div class="p-3 bg-transparent">
                 <a href="./index.html" class="bg-transparent">
                     <img src="../assets/imgs/logo.png" alt="logo" width="50" height="50" class="bg-transparent select-none" />
@@ -20,7 +35,7 @@
             </div>
 
             <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
-                <button id="minimizeWindow" class="p-[2px] rounded-smbg-[#101010] cursor-pointer self-center bg-transparent">
+                <button id="minimizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-minus bg-transparent" style="color: #878787;"></i>
                 </button>
 
@@ -34,6 +49,41 @@
             </div>
         </header>
 
+        <div class="fixed w-[100dvw] z-10 h-[100dvh] bg-black/40 flex items-center justify-center -left-full transition-all duration-150 flex-col" id="modalDeletePassword">
+            <div class="bg-transparent flex flex-col items-center justify-center">
+                <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] rounded-t-md">
+                    <div class="w-full draggable h-full bg-transparent flex items-center justify-between pl-6">
+                        <h3 class="bg-transparent text-[#90909070] select-none font-semibold">
+                            Delete All Passwords
+                        </h3>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
+                        <button id="closeModal" class="p-[2px] rounded-sm cursor-pointer select-none">
+                            <i class="fa-solid fa-xmark bg-transparent" style="color: #878787;"></i>
+                        </button>
+                    </div>
+                </header>
+
+                <section class="p-6  w-full bg-[#101010] rounded-b-md">
+                    <p class="bg-transparent text-[#909090] font-semibold select-none">
+                        Are you sure you want to delete all passwords from <br />
+                        our app? This action cannot be undone.
+                    </p>
+
+                    <div class="bg-transparent flex flex-col gap-y-2 pt-6">
+                        <button id="deletePasswordModal" class="bg-[#702121] duration-150 hover:bg-[#993030] text-center rounded-sm cursor-pointer py-1 w-full font-semibold select-none">
+                            Delete All Passwords
+                        </button>
+
+                        <button id="cancelButton" class="bg-[#202020] duration-150 hover:bg-[#282828] text-center rounded-sm cursor-pointer py-1 w-full font-semibold select-none">
+                            Cancel
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
         <main class="w-full h-full bg-transparent flex">
             <aside class="bg-[#141414] min-w-16 w-16 h-full flex flex-col items-center justify-between gap-y-2 p-4 border-r border-[#90909030]">
                 <div class="flex flex-col bg-transparent gap-y-2">
@@ -46,16 +96,35 @@
                     </a>
                 </div>
 
-                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none mb-12">
+                <a href="./settings.html" class="p-2 rounded-sm bg-[#101010] cursor-pointer select-none">
                     <i class="fas fa-cog text-[#909090] md:text-2xl"></i>
                 </a>
             </aside>
 
             <section class="bg-transparent w-full h-full p-6">
-                
+                <h1 class="bg-transparent text-lg select-none">
+                    SETTINGS
+                </h1>
+
+                <p class="text-[#909090] font-semibold bg-transparent text-md select-none">
+                    Manage some application settings.
+                </p>
+
+                <h1 class="bg-transparent pt-4 select-none">
+                    DELETE ALL PASSWORDS
+                </h1>
+
+                <p class="text-[#909090] font-semibold bg-transparent pb-1 select-none">
+                    Delete all passwords from our database and applications.
+                </p>
+
+                <button id="deleteAllPasswords" class="bg-[#702121] duration-150 hover:bg-[#993030] rounded-sm cursor-pointer text-center py-1 px-8 font-medium select-none">
+                    Delete All Passwords
+                </button>
             </section>
         </main>
 
         <script src="../js/window/buttons.js" type="module"></script>
+        <script src="../js/pages/settings.js"></script>
     </body>
 </html>
