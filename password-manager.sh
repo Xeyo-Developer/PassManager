@@ -1,82 +1,101 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-WHITE='\033[1;37m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+# =============================================
+# Password Manager - Skrypt uruchamiający
+# Wersja: 1.0.0
+# =============================================
 
-error() {
-    echo -e "${RED}[ERROR]${NC} $1" >&2
-}
-
-info() {
-    echo -e "${BLUE}[INFO]${NC} $1"
-}
-
-success() {
-    echo -e "${GREEN}[SUKCES]${NC} $1"
-}
-
-run_hidden() {
-    "$@" >/dev/null 2>&1
-    return $?
-}
-
+# Konfiguracja środowiska
 clear
-echo -e "${WHITE}-----------------------------------${NC}"
-echo -e "${WHITE}$(date) - Uruchamianie Password Manager${NC}"
-echo -e "${WHITE}-----------------------------------${NC}"
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+printf '\033]2;Password Manager - Uruchamianie\007'
 
-info "Instalowanie wymaganych pakietów..."
-run_hidden npm install --no-audit --no-fund
-if [ $? -ne 0 ]; then
-    info "Próba naprawy cache npm..."
-    run_hidden npm cache clean --force
-    run_hidden npm install --no-audit --no-fund
-    if [ $? -ne 0 ]; then
-        error "Krytyczny błąd podczas instalacji pakietów"
-        read -p "Naciśnij Enter, aby zakończyć..."
-        exit 1
-    fi
-fi
+# Nagłówek uruchomienia
+echo "----------------------------------------------------------------------"
+echo "$(date) - Uruchamianie Password Manager v1.0.0"
+echo "----------------------------------------------------------------------"
+echo
 
-info "Sprawdzanie TypeScript..."
-if ! command -v tsc &> /dev/null; then
-    info "Instalowanie TypeScript globalnie..."
-    run_hidden npm install -g typescript
-    if [ ! -f "node_modules/.bin/tsc" ]; then
-        error "Nie udało się zainstalować TypeScript"
-        read -p "Naciśnij Enter, aby zakończyć..."
-        exit 1
-    fi
-fi
-
-info "Inicjalizacja konfiguracji TypeScript..."
-if [ ! -f "tsconfig.json" ]; then
-    run_hidden npx tsc --init
-fi
-
-info "Kompilowanie projektu..."
-run_hidden tsc
-if [ $? -ne 0 ]; then
-    error "Błąd kompilacji TypeScript"
-    echo -e "\nSprawdź:"
-    echo -e "1. Czy pliki źródłowe istnieją w folderze src/"
-    echo -e "2. Czy tsconfig.json jest poprawnie skonfigurowany"
-    echo -e "3. Czy nie ma błędów składniowych w kodzie TypeScript\n"
-    read -p "Naciśnij Enter, aby zakończyć..."
+# Sprawdź czy npm jest dostępny
+if ! command -v npm &> /dev/null; then
+    echo "[ERROR] Nie znaleziono npm. Zainstaluj Node.js przed kontynuowaniem."
+    read -p "Naciśnij Enter, aby kontynuować..."
     exit 1
 fi
 
-info "Uruchamianie aplikacji..."
-npm run start
+# Funkcja do ukrytego uruchamiania poleceń
+run_hidden() {
+    "$@" > /dev/null 2>&1
+    return $?
+}
 
-if [ $? -eq 0 ]; then
-    success "Aplikacja została zamknięta"
-else
-    error "Wystąpił błąd podczas uruchamiania"
+# Instalacja pakietów npm
+echo "[1/4] Instalowanie wymaganych pakietów..."
+npm install --no-audit --no-fund
+if [ $? -ne 0 ]; then
+    echo "[WARN] Próba naprawy cache npm..."
+    run_hidden npm cache clean --force
+    npm install --no-audit --no-fund
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] Nie udało się zainstalować wymaganych pakietów"
+        read -p "Naciśnij Enter, aby kontynuować..."
+        exit 1
+    fi
 fi
 
-read -p "Naciśnij Enter, aby zakończyć..."
-exit 0
+# Sprawdzenie TypeScript
+echo "[2/4] Sprawdzanie TypeScript..."
+if ! command -v tsc &> /dev/null; then
+    echo "Instalowanie TypeScript lokalnie..."
+    npm install -g typescript
+    if [ ! -f node_modules/.bin/tsc ]; then
+        echo "[ERROR] Instalacja TypeScript nie powiodła się"
+        read -p "Naciśnij Enter, aby kontynuować..."
+        exit 1
+    fi
+fi
+
+# Inicjalizacja konfiguracji TypeScript
+echo "[3/4] Inicjalizacja konfiguracji TypeScript..."
+if [ ! -f tsconfig.json ]; then
+    run_hidden npx tsc --init
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] Nie udało się zainicjalizować tsconfig.json"
+        read -p "Naciśnij Enter, aby kontynuować..."
+        exit 1
+    fi
+fi
+
+# Kompilacja projektu
+echo "[4/4] Kompilowanie projektu..."
+run_hidden tsc
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Błąd kompilacji TypeScript"
+    echo
+    echo "Sprawdź:"
+    echo "1. Czy pliki źródłowe istnieją w folderze src/"
+    echo "2. Czy tsconfig.json jest poprawnie skonfigurowany"
+    echo "3. Czy nie ma błędów składniowych w kodzie TypeScript"
+    echo
+    read -p "Naciśnij Enter, aby kontynuować..."
+    exit 1
+fi
+
+# Uruchomienie aplikacji
+echo
+echo "Uruchamianie aplikacji..."
+echo "----------------------------------------------------------------------"
+npm run start
+
+# Obsługa wyniku uruchomienia
+if [ $? -eq 0 ]; then
+    echo "----------------------------------------------------------------------"
+    echo "[SUKCES] Aplikacja została pomyślnie zamknięta"
+else
+    echo "----------------------------------------------------------------------"
+    echo "[ERROR] Wystąpił błąd podczas uruchamiania aplikacji"
+fi
+
+read -p "Naciśnij Enter, aby kontynuować..."
+exit $?
