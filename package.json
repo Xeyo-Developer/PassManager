@@ -18,7 +18,7 @@
   "private": true,
   "dependencies": {
     "@tailwindcss/cli": "^4.0.4",
-    "dotenv": "^16.4.7",
+    "dotenv": "^17.0.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
     "sqlite3": "^5.1.7",
