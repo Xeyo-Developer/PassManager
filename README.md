@@ -1,7 +1,7 @@
 ##
 
 <div align="center">
-    <img src="/resources/assets/imgs/logoxyz.ico" width="256" alt="PassManager Logo"/>
+    <img src="/resources/assets/imgs/logo.ico" width="256" alt="PassManager Logo"/>
     <h1>PassManager</h1>
 </div>
 
