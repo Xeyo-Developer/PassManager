@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",
-    "@types/dotenv": "^6.1.1",
+    "@types/dotenv": "^8.0.0",
     "@types/node": "^22.13.1",
     "electron": "^37.0.0",
     "electron-builder": "^26.0.0",
