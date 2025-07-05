@@ -1,22 +1,20 @@
 {
   "name": "password-manager",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "PassManager is private, offline-first password manager that stores all your data locally with no server connection required.",
+  "author": "Xeyo <wojciechfirmowe@wp.pl>",
   "main": "dist/index.js",
   "scripts": {
     "start": "node ./dist/scripts/DatabaseConfiguration.js && electron dist/index.js",
-    "build": "tsc",
-    "tailwind": "pnpx @tailwindcss/cli -i ./resources/css/input.css -o ./resources/css/output.css --content \"./resources/views/**/*.html\" --watch"
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
-    "@types/dotenv": "^8.2.3",
     "@types/node": "^24.0.10",
     "electron": "^37.2.0",
     "electron-builder": "^26.0.12",
     "typescript": "^5.8.3"
   },
-  "private": true,
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
     "dotenv": "^17.0.1",
