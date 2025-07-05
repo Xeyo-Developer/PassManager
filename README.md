@@ -21,6 +21,13 @@
 
 ---
 
+## 🖼️ Preview
+<div align="center">
+    <img src="/resources/assets/imgs/PassManager.png" alt="PassManager App Preview"/>
+</div>
+
+---
+
 ### 🔰 Installation
 ```powershell
 git clone https://github.com/Xeyo-Developer/PassManager
