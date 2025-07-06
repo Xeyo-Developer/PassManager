@@ -1,6 +1,6 @@
 {
   "name": "password-manager",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "PassManager is private, offline-first password manager that stores all your data locally with no server connection required.",
   "author": "Xeyo <wojciechfirmowe@wp.pl>",
   "main": "dist/index.js",
