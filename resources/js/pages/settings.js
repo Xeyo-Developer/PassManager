@@ -4,22 +4,40 @@ const closeModalButton = document.getElementById("closeModal");
 const cancelModalButton = document.getElementById("cancelButton");
 const deleteAllPasswordsButton = document.getElementById("deleteAllPasswords");
 
+function hideModal() {
+    if (modalDeletePassword) {
+        modalDeletePassword.classList.add("modal-hidden");
+        modalDeletePassword.classList.remove("modal-visible");
+    }
+}
+
+function showModal() {
+    if (modalDeletePassword) {
+        modalDeletePassword.classList.remove("modal-hidden");
+        modalDeletePassword.classList.add("modal-visible");
+    }
+}
+
 if (deleteAllPasswordsButton) {
     deleteAllPasswordsButton.addEventListener("click", () => {
-        modalDeletePassword.classList.remove("-left-full");
+        showModal();
     })
 }
 
 if (closeModalButton) {
-    closeModalButton.addEventListener("click", () => {
-        modalDeletePassword.classList.add("-left-full");
-    })
+    closeModalButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        hideModal();
+    });
 }
 
 if (cancelModalButton) {
-    cancelModalButton.addEventListener("click", () => {
-        modalDeletePassword.classList.add("-left-full");
-    })
+    cancelModalButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        hideModal();
+    });
 }
 
 if (modalDeletePasswordButton) {

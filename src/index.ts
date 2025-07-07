@@ -5,8 +5,6 @@ import { PasswordHashing } from "./globals/PasswordHashing";
 import { appDatabase } from "./globals/AppDatabase";
 
 class MainApplication {
-    private constructor() {};
-
     public static init(): void {
         app.on("ready", this.onAppReady);
         app.on("window-all-closed", this.onWindowAllClosed)

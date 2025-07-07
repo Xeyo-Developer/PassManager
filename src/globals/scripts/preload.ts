@@ -20,12 +20,5 @@ contextBridge.exposeInMainWorld("electron", {
     }): void => ipcRenderer.send("updatePassword", id, options),
 
     deletePassword: (id: number): void => ipcRenderer.send("deletePassword", id),
-    deleteAllPasswords: (): void => ipcRenderer.send("deleteAllPasswords"),
-
-    makeDraggable: (element: HTMLElement): void => {
-        (element.style as any).webkitAppRegion = 'drag';
-    },
-    makeUndraggable: (element: HTMLElement): void => {
-        (element.style as any).webkitAppRegion = 'no-drag';
-    }
+    deleteAllPasswords: (): void => ipcRenderer.send("deleteAllPasswords")
 });

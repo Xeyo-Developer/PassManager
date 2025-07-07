@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # =============================================
-# Password Manager - Skrypt uruchamiający
-# Wersja: 1.0.2
+# PassManager - Skrypt uruchamiający
+# Wersja: 1.0.3
 # =============================================
 
 # Konfiguracja środowiska
 clear
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
-printf '\033]2;Password Manager - Uruchamianie\007'
+printf '\033]2;PassManager - Uruchamianie\007'
 
 # Nagłówek uruchomienia
 echo "----------------------------------------------------------------------"
-echo "$(date) - Uruchamianie Password Manager v1.0.2"
+echo "$(date) - Uruchamianie PassManager v1.0.3"
 echo "----------------------------------------------------------------------"
 echo
 
