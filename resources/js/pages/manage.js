@@ -1,30 +1,57 @@
 const modalDeletePassword = document.getElementById("modalDeletePassword");
-const closeModalButton = document.getElementById("closeModal");
 const modalDeletePasswordButton = document.getElementById("deletePasswordModal");
 const cancelModalButton = document.getElementById("cancelButton");
+const closeModalButton = document.getElementById("closeModal");
 const sectionElement = document.getElementById("management");
 const urlOptions = window.location.search;
 let passwordId = false;
 
+function hideModal() {
+    if (modalDeletePassword) {
+        modalDeletePassword.classList.add("modal-hidden");
+        modalDeletePassword.classList.remove("modal-visible");
+    }
+}
+
+function showModal() {
+    if (modalDeletePassword) {
+        modalDeletePassword.classList.remove("modal-hidden");
+        modalDeletePassword.classList.add("modal-visible");
+    }
+}
+
 if (closeModalButton) {
-    closeModalButton.addEventListener("click", () => {
-        modalDeletePassword.classList.add("-left-full");
-    })
+    closeModalButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        hideModal();
+    });
 }
 
 if (cancelModalButton) {
-    cancelModalButton.addEventListener("click", () => {
-        modalDeletePassword.classList.add("-left-full");
-    })
+    cancelModalButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        hideModal();
+    });
+}
+
+if (modalDeletePassword) {
+    modalDeletePassword.addEventListener("click", (e) => {
+        if (e.target === modalDeletePassword) {
+            hideModal();
+        }
+    });
 }
 
 if (modalDeletePasswordButton) {
-    modalDeletePasswordButton.addEventListener("click", () => {
+    modalDeletePasswordButton.addEventListener("click", (e) => {
+        e.preventDefault();
         if (typeof passwordId !== "number") return;
 
         window.electron.deletePassword(passwordId);
         window.location.href = "../views/list.html";
-    })
+    });
 }
 
 const main = () => {
@@ -137,7 +164,6 @@ const viewPassword = () => {
         </label>
         <input name="password" type="text" value="${password}" placeholder="${password}" class="bg-transparent p-2 outline-none border-[#90909030] border rounded-md font-medium max-lg:w-full w-[50%]" maxlength="64" minlength="3" id="password" />
 
-
         <p class="text-[#909090] font-semibold bg-transparent pt-4 pb-2 select-none">
             Type
         </p>
@@ -211,11 +237,18 @@ const viewPassword = () => {
         </div>
     `;
 
+    setupEventListeners();
+}
+
+function setupEventListeners() {
     const errorsContainer = document.getElementById("errors");
     const usernameError = document.getElementById("usernameError");
     const passwordError = document.getElementById("passwordError");
-
     const closeErrors = document.getElementById("closeErrors");
+    const deletePasswordBtn = document.getElementById("deletePassword");
+    const savePasswordBtn = document.getElementById("savePassword");
+    const copyUsernameButton = document.getElementById("copyUsername");
+    const copyPasswordButton = document.getElementById("copyPassword");
 
     if (closeErrors) {
         closeErrors.addEventListener("click", () => {
@@ -223,32 +256,33 @@ const viewPassword = () => {
         });
     }
 
-    document.getElementById("deletePassword").addEventListener("click", () => {
-        modalDeletePassword.classList.remove("-left-full");
-    });
+    if (deletePasswordBtn) {
+        deletePasswordBtn.addEventListener("click", () => {
+            showModal();
+        });
+    }
 
-    document.getElementById("savePassword").addEventListener("click", () => {
-        const username = document.getElementById("username")?.value || "";
-        const password = document.getElementById("password")?.value || "";
+    if (savePasswordBtn) {
+        savePasswordBtn.addEventListener("click", () => {
+            const username = document.getElementById("username")?.value || "";
+            const password = document.getElementById("password")?.value || "";
 
-        if (!password || !username) {
-            usernameError.classList[!username ? "remove" : "add"]("hidden");
-            passwordError.classList[!password ? "remove" : "add"]("hidden");
-            errorsContainer.classList.remove("hidden");
-            return;
-        }
+            if (!password || !username) {
+                usernameError.classList[!username ? "remove" : "add"]("hidden");
+                passwordError.classList[!password ? "remove" : "add"]("hidden");
+                errorsContainer.classList.remove("hidden");
+                return;
+            }
 
-        window.electron.updatePassword(passwordId, {
-            username,
-            password,
-            type: document.querySelector('input[name="type"]:checked')?.value || 3,
-        })
+            window.electron.updatePassword(passwordId, {
+                username,
+                password,
+                type: document.querySelector('input[name="type"]:checked')?.value || 3,
+            })
 
-        window.location.href = "../views/list.html";
-    });
-
-    const copyUsernameButton = document.getElementById("copyUsername");
-    const copyPasswordButton = document.getElementById("copyPassword");
+            window.location.href = "../views/list.html";
+        });
+    }
 
     if (copyUsernameButton) {
         copyUsernameButton.addEventListener("click", () => {
@@ -263,4 +297,10 @@ const viewPassword = () => {
     }
 }
 
-main();
+document.addEventListener('DOMContentLoaded', main);
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', main);
+} else {
+    main();
+}

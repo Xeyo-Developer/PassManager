@@ -3,7 +3,7 @@ setlocal enableextensions
 
 :: =============================================
 :: Password Manager - Skrypt uruchamiający
-:: Wersja: 1.0.0
+:: Wersja: 1.0.2
 :: =============================================
 
 :: Konfiguracja środowiska
@@ -14,7 +14,7 @@ cls
 
 :: Nagłówek uruchomienia
 echo ----------------------------------------------------------------------
-echo %date% %time% - Uruchamianie Password Manager v1.0.0
+echo %date% %time% - Uruchamianie Password Manager v1.0.2
 echo ----------------------------------------------------------------------
 echo.
 

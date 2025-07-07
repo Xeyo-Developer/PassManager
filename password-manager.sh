@@ -2,7 +2,7 @@
 
 # =============================================
 # Password Manager - Skrypt uruchamiający
-# Wersja: 1.0.0
+# Wersja: 1.0.2
 # =============================================
 
 # Konfiguracja środowiska
@@ -13,7 +13,7 @@ printf '\033]2;Password Manager - Uruchamianie\007'
 
 # Nagłówek uruchomienia
 echo "----------------------------------------------------------------------"
-echo "$(date) - Uruchamianie Password Manager v1.0.0"
+echo "$(date) - Uruchamianie Password Manager v1.0.2"
 echo "----------------------------------------------------------------------"
 echo
 

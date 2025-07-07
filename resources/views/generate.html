@@ -8,75 +8,7 @@
         <title>Password Manager</title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-        <link rel="stylesheet" href="../css/output.css" />
-
-        <style>
-            header {
-                -webkit-app-region: drag;
-                user-select: none;
-            }
-
-            header button, header a, header img {
-                -webkit-app-region: no-drag;
-            }
-
-            main {
-                height: calc(100vh - 3rem);
-            }
-
-            .sidebar-btn {
-                position: relative;
-                padding: 10px;
-                border-radius: 8px;
-                transition: all 0.2s ease;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: #101010;
-                cursor: pointer;
-                margin-bottom: 8px;
-            }
-
-            .sidebar-btn:last-child {
-                margin-bottom: 0;
-            }
-
-            .sidebar-btn:hover {
-                background: #1a1a1a;
-            }
-
-            .sidebar-btn i {
-                color: #909090;
-                font-size: 1.25rem;
-                transition: all 0.2s ease;
-            }
-
-            .sidebar-btn.active {
-                background: #1a1a1a;
-            }
-
-            .sidebar-btn.active i {
-                color: #424242;
-            }
-
-            .sidebar-btn::after {
-                content: '';
-                position: absolute;
-                left: -4px;
-                top: 50%;
-                transform: translateY(-50%);
-                height: 0;
-                width: 3px;
-                background: #424242;
-                border-radius: 0 2px 2px 0;
-                transition: all 0.2s ease;
-            }
-
-            .sidebar-btn:hover::after,
-            .sidebar-btn.active::after {
-                height: 60%;
-            }
-        </style>
+        <link rel="stylesheet" href="../css/index.css" />
     </head>
 
     <body>
@@ -130,22 +62,22 @@
 
                 <div class="bg-transparent grid max-lg:grid-cols-2 place-items-start py-2">
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-y-1 gap-x-2 items-center">
-                        <label class="bg-transparent text-[#909090] font-medium select-none">Allow lowercase letters in a password.</label>
+                        <label for="lowercaseLettersOption" class="bg-transparent text-[#909090] font-medium select-none">Allow lowercase letters in a password.</label>
                         <input checked type="checkbox" name="lowercase-letters" id="lowercaseLettersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label class="bg-transparent text-[#909090] font-medium select-none">Allow uppercase letters in a password.</label>
+                        <label for="uppercaseLettersOption" class="bg-transparent text-[#909090] font-medium select-none">Allow uppercase letters in a password.</label>
                         <input checked type="checkbox" name="uppercase-letters" id="uppercaseLettersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label class="bg-transparent text-[#909090] font-medium select-none">Allow numbers in a password.</label>
+                        <label for="numbersOption" class="bg-transparent text-[#909090] font-medium select-none">Allow numbers in a password.</label>
                         <input checked type="checkbox" name="numbers" id="numbersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label class="bg-transparent text-[#909090] font-medium select-none">Allow special characters in a password.</label>
+                        <label for="specialCharactersOption" class="bg-transparent text-[#909090] font-medium select-none">Allow special characters in a password.</label>
                         <input type="checkbox" name="special-characters" id="specialCharactersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
                 </div>
@@ -159,13 +91,14 @@
                 </p>
 
                 <div class="bg-transparent flex items-center justify-start gap-x-1 min-w-36 pt-2">
-                    <button id="decrementLengthButton" class="py-1 px-3 text-center bg-[#702121] duration-150 hover:bg-[#993030] rounded-sm cursor-pointer font-medium select-none font-mono">
+                    <button id="decrementLengthButton" class="py-1 px-3 text-center bg-[#702121] duration-150 hover:bg-[#993030] rounded-md cursor-pointer font-medium select-none font-mono">
                         -
                     </button>
 
+                    <label for="passwordsLengthInput"></label>
                     <input type="number" id="passwordsLengthInput" class="text-center rounded-md p-1 border border-[#90909030] duration-150 focus:border-[#90909050] outline-none bg-[#141414] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" value="12" min="8" max="64" maxlength="2" />
 
-                    <button id="incrementLengthButton" class="py-1 px-3 text-center bg-[#407521] duration-150 rounded-sm cursor-pointer font-medium select-none font-mono">
+                    <button id="incrementLengthButton" class="py-1 px-3 text-center bg-[#407521] duration-150 hover:bg-[#54992C] rounded-md cursor-pointer font-medium select-none font-mono">
                         +
                     </button>
                 </div>
@@ -180,18 +113,19 @@
 
                 <div class="bg-transparent flex items-center gap-x-1 pt-2">
                     <div class="bg-transparent flex items-center justify-start gap-x-1 min-w-36">
-                        <button id="decrementButton" class="py-1 px-3 text-center bg-[#702121] duration-150 hover:bg-[#993030] rounded-sm cursor-pointer font-medium select-none font-mono">
+                        <button id="decrementButton" class="py-1 px-3 text-center bg-[#702121] duration-150 hover:bg-[#993030] rounded-md cursor-pointer font-medium select-none font-mono">
                             -
                         </button>
 
+                        <label for="passwordsAmount"></label>
                         <input type="number" id="passwordsAmount" class="text-center rounded-md p-1 border border-[#90909030] duration-150 focus:border-[#90909050] outline-none bg-[#141414] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" value="1" min="1" max="20" maxlength="2" />
 
-                        <button id="incrementButton" class="py-1 px-3 text-center bg-[#407521] duration-150 rounded-sm cursor-pointer font-medium select-none font-mono">
+                        <button id="incrementButton" class="py-1 px-3 text-center bg-[#407521] duration-150 hover:bg-[#54992C] rounded-md cursor-pointer font-medium select-none font-mono">
                             +
                         </button>
                     </div>
 
-                    <button id="generatePasswords" class="bg-[#2A5991] duration-150 rounded-sm cursor-pointer text-center py-1 px-8 font-medium select-none">
+                    <button id="generatePasswords" class="bg-[#2A5991] duration-150 hover:bg-[#326AAD] rounded-md cursor-pointer text-center py-1 px-8 font-medium select-none">
                         Generate Passwords
                     </button>
                 </div>
