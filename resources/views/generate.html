@@ -56,7 +56,7 @@
             }
 
             .sidebar-btn.active i {
-                color: #6868DF;
+                color: #424242;
             }
 
             .sidebar-btn::after {
@@ -67,7 +67,7 @@
                 transform: translateY(-50%);
                 height: 0;
                 width: 3px;
-                background: #6868DF;
+                background: #424242;
                 border-radius: 0 2px 2px 0;
                 transition: all 0.2s ease;
             }
@@ -83,20 +83,20 @@
         <header class="h-12 w-full flex items-center justify-between border-b border-b-[#90909030] bg-[#141414] draggable">
             <div class="p-3 bg-transparent">
                 <a href="./index.html" class="bg-transparent">
-                    <img src="../assets/imgs/logo.ico" alt="logo" width="52" height="52" class="bg-transparent select-none" />
+                    <img src="../assets/imgs/logo.ico" alt="logo" width="40" height="40" class="bg-transparent select-none" />
                 </a>
             </div>
 
             <div class="flex items-center justify-center gap-x-2 p-6 bg-transparent">
-                <button id="minimizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
+                <button id="minimizeWindow" class="p-[2px] rounded-sm cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-minus bg-transparent" style="color: #878787;"></i>
                 </button>
 
-                <button id="maximizeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
+                <button id="maximizeWindow" class="p-[2px] rounded-sm cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-maximize text-xs bg-transparent" style="color: #878787;"></i>
                 </button>
 
-                <button id="closeWindow" class="p-[2px] rounded-sm bg-[#101010] cursor-pointer select-none bg-transparent">
+                <button id="closeWindow" class="p-[2px] rounded-sm cursor-pointer select-none bg-transparent">
                     <i class="fa-solid fa-xmark bg-transparent" style="color: #878787;"></i>
                 </button>
             </div>
@@ -130,22 +130,22 @@
 
                 <div class="bg-transparent grid max-lg:grid-cols-2 place-items-start py-2">
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-y-1 gap-x-2 items-center">
-                        <label for="lowercase-letters" class="bg-transparent text-[#909090] font-medium select-none">Allow lowercase letters in a password.</label>
+                        <label class="bg-transparent text-[#909090] font-medium select-none">Allow lowercase letters in a password.</label>
                         <input checked type="checkbox" name="lowercase-letters" id="lowercaseLettersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label for="uppercase-letters" class="bg-transparent text-[#909090] font-medium select-none">Allow uppercase letters in a password.</label>
+                        <label class="bg-transparent text-[#909090] font-medium select-none">Allow uppercase letters in a password.</label>
                         <input checked type="checkbox" name="uppercase-letters" id="uppercaseLettersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label for="numbers" class="bg-transparent text-[#909090] font-medium select-none">Allow numbers in a password.</label>
+                        <label class="bg-transparent text-[#909090] font-medium select-none">Allow numbers in a password.</label>
                         <input checked type="checkbox" name="numbers" id="numbersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
 
                     <div class="bg-transparent flex flex-row-reverse justify-start gap-x-2 items-center">
-                        <label for="special-characters" class="bg-transparent text-[#909090] font-medium select-none">Allow special characters in a password.</label>
+                        <label class="bg-transparent text-[#909090] font-medium select-none">Allow special characters in a password.</label>
                         <input type="checkbox" name="special-characters" id="specialCharactersOption" class="cursor-pointer appearance-none border-2 border-[#909090] rounded-sm bg-[#101010] w-4 h-4 checked:bg-[#2A5991] checked:border-[#2A5991] duration-150" />
                     </div>
                 </div>

@@ -102,7 +102,7 @@ if (generatePasswords) {
                 copyToClipboard(generatedPassword);
             };
 
-            liElement.classList.add("bg-[#141414]", "border", "border-[#90909030]", "max-lg:w-full", "w-[50%]", "text-center", "marker:text-[#909090]", "hover:text-[#6868DF]", "text-[#909090]", "duration-150", "cursor-pointer", "font-semibold");
+            liElement.classList.add("bg-[#141414]", "border", "border-[#90909030]", "max-lg:w-full", "w-[50%]", "text-center", "text-[#909090]", "hover:text-[#424242]", "duration-150", "cursor-pointer", "font-semibold");
 
             generatedPasswords.classList.add("list-disc");
             generatedPasswords.appendChild(liElement);
