@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^25.0.6",
-    "electron": "^39.2.7",
+    "electron": "^40.0.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {
