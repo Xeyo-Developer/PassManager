@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "dotenv": "^17.3.1",
-    "electron-builder": "^26.7.0",
+    "electron-builder": "^26.8.1",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
     "sqlite3": "^5.1.7"
