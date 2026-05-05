@@ -13,7 +13,7 @@ printf '\033]2;PassManager - Uruchamianie\007'
 
 # Nagłówek uruchomienia
 echo "----------------------------------------------------------------------"
-echo "$(date) - Uruchamianie PassManager v1.0.3"
+echo "$(date) - Uruchamianie PassManager v1.0.4"
 echo "----------------------------------------------------------------------"
 echo
 

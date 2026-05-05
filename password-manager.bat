@@ -3,7 +3,7 @@ setlocal enableextensions
 
 :: =============================================
 :: PassManager - Skrypt uruchamiający
-:: Wersja: 1.0.3
+:: Wersja: 1.0.4
 :: =============================================
 
 :: Konfiguracja środowiska
@@ -14,7 +14,7 @@ cls
 
 :: Nagłówek uruchomienia
 echo ----------------------------------------------------------------------
-echo %date% %time% - Uruchamianie PassManager v1.0.3
+echo %date% %time% - Uruchamianie PassManager v1.0.4
 echo ----------------------------------------------------------------------
 echo.
 
